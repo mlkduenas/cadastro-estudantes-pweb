@@ -1,8 +1,20 @@
-<h2>{{aluno.nome | uppercase}} Detalhes</h2>
-<div><span>id: </span>{{aluno.id}}</div>
-<div><span>nome: </span>{{aluno.nome}}</div>
+<h2>Meus Alunos</h2>
+<ul class="alunos">
+  <li *ngFor="let aluno of alunos"
+    [class.selected]="aluno === selectedAluno"
+    (click)="onSelect(aluno)">
+    <span class="badge">{{aluno.id}}</span> {{aluno.nome}}
+  </li>
+</ul>
 
-<div>
-    <label for="nome">Nome do Aluno: </label>
-    <input id="nome" [(ngModel)]="aluno.nome" placeholder="Nome">
+<div *ngIf="selectedAluno">
+
+  <h2>{{selectedAluno.nome | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedAluno.id}}</div>
+  <div><span>periodo:  </span>{{selectedAluno.periodo}}</div>
+  <div>
+    <label for="aluno-name">Nome do Aluno: </label>
+    <input id="aluno-name" [(ngModel)]="selectedAluno.nome" placeholder="Nome">
+  </div>
+
 </div>
