@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import { AppComponent } from './app.component';
 import { AlunoComponent } from './aluno/aluno.component';
+import { AlunoDetailComponent } from './aluno-detail/aluno-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlunoComponent
+    AlunoComponent,
+    AlunoDetailComponent
   ],
   imports: [
     BrowserModule,
