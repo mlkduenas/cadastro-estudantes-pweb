@@ -16,4 +16,10 @@ export class AlunoService {
     this.messageService.add('AlunoService: fetched alunos')
     return alunos;
   }
+
+  getAluno(id: number): Observable<Aluno> {
+    const aluno = ALUNOS.find(a => a.id === id)!;
+    this.messageService.add(`AlunoService: fetched aluno id=${id}`);
+    return of(aluno);
+  }
 }

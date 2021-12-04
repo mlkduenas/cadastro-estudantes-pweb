@@ -1,10 +1,8 @@
 <h2>Meus Alunos</h2>
 <ul class="alunos">
-  <li *ngFor="let aluno of alunos"
-    [class.selected]="aluno === selectedAluno"
-    (click)="onSelect(aluno)">
-    <span class="badge">{{aluno.id}}</span> {{aluno.nome}}
+  <li *ngFor="let aluno of alunos">
+    <a routerLink="/detail/{{aluno.id}}">
+      <span class="badge">{{aluno.id}}</span> {{aluno.nome}}
+    </a>
   </li>
 </ul>
-
-<app-aluno-detail [aluno]="selectedAluno"></app-aluno-detail>
