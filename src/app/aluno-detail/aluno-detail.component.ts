@@ -29,6 +29,13 @@ export class AlunoDetailComponent implements OnInit {
       .subscribe(aluno => this.aluno = aluno);
   }
 
+  save(): void {
+    if (this.aluno) {
+      this.alunoService.updateAluno(this.aluno)
+        .subscribe(() => this.goBack());
+    }
+  }
+
   goBack(): void {
     this.location.back();
   }

@@ -1,4 +1,15 @@
 <h2>Meus Alunos</h2>
+
+<div>
+  <label for="new-aluno">Nome do aluno: </label>
+  <input id="new-aluno" #alunoNome />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button" (click)="add(alunoName.value); alunoName.value=''">
+    Adicionar Aluno
+  </button>
+</div>
+
 <ul class="alunos">
   <li *ngFor="let aluno of alunos">
     <a routerLink="/detail/{{aluno.id}}">
