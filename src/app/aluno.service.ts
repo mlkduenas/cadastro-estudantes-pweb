@@ -70,7 +70,7 @@ private handleError<T>(operation = 'operation', result?: T) {
 updateAluno(aluno: Aluno): Observable<any> {
   return this.http.put(this.alunosUrl, aluno, this.httpOptions).pipe(
     tap(_ => this.log(`updated hero id=${aluno.id}`)),
-    catchError(this.handleError<any>('updateHero'))
+    catchError(this.handleError<any>('updateHero'))///commit new
   );
 }
 
