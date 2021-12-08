@@ -69,8 +69,8 @@ private handleError<T>(operation = 'operation', result?: T) {
 /** PUT: update the hero on the server */
 updateAluno(aluno: Aluno): Observable<any> {
   return this.http.put(this.alunosUrl, aluno, this.httpOptions).pipe(
-    tap(_ => this.log(`updated hero id=${aluno.id}`)),
-    catchError(this.handleError<any>('updateHero'))///commit new
+    tap(_ => this.log(`Aluno atualizado id=${aluno.id}`)),
+    catchError(this.handleError<any>('updateAluno'))///commit new
   );
 }
 
@@ -79,6 +79,15 @@ addAluno(aluno: Aluno): Observable<Aluno> {
   return this.http.post<Aluno>(this.alunosUrl, aluno, this.httpOptions).pipe(
     tap((newAluno: Aluno) => this.log(`Aluno adicionado com o id=${newAluno.id}`)),
     catchError(this.handleError<Aluno>('addAluno'))
+  );
+}
+
+deleteAluno(id: number): Observable<Aluno> {
+  const url = `${this.alunosUrl}/${id}`;
+
+  return this.http.delete<Aluno>(url, this.httpOptions).pipe(
+    tap(_ => this.log(`Aluno deletado id=${id}`)),
+    catchError(this.handleError<Aluno>('deleteAluno'))
   );
 }
 

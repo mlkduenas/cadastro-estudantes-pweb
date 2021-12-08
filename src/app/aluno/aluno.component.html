@@ -5,7 +5,7 @@
   <input id="new-aluno" #alunoNome />
 
   <!-- (click) passes input value to add() and then clears the input -->
-  <button class="add-button" (click)="add(alunoName.value); alunoName.value=''">
+  <button class="add-button" (click)="add(alunoNome.value); alunoNome.value=''">
     Adicionar Aluno
   </button>
 </div>
@@ -15,5 +15,7 @@
     <a routerLink="/detail/{{aluno.id}}">
       <span class="badge">{{aluno.id}}</span> {{aluno.nome}}
     </a>
+    <button class="delete" title="delete aluno"
+      (click)="delete(aluno)">x</button>
   </li>
 </ul>

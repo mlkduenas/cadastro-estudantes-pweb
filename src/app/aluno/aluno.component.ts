@@ -30,13 +30,18 @@ export class AlunoComponent implements OnInit {
       .subscribe(alunos => this.alunos = alunos);
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.alunoService.addAluno({ name } as Aluno)
+  add(nome: string): void {
+    nome = nome.trim();
+    if (!nome) { return; }
+    this.alunoService.addAluno({ nome } as Aluno)
       .subscribe(aluno => {
         this.alunos.push(aluno);
       });
+  }
+
+  delete(aluno: Aluno): void {
+    this.alunos = this.alunos.filter(a => a !== aluno);
+    this.alunoService.deleteAluno(aluno.id).subscribe();
   }
 
 }
